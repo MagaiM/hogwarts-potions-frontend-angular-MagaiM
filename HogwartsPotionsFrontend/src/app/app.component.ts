@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'HogwartsPotionsFrontend';
+  constructor() {
+    setInterval( ()=> this.time = new Date(), 1000);
+  }
+
+  title = 'HogwartsPotions';
+
+  time = new Date();
+
 }
