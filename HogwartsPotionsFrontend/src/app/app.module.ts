@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { PotionsComponent } from './potions/potions.component';
@@ -13,6 +15,8 @@ import { RatFriendlyRoomsComponent } from './rat-friendly-rooms/rat-friendly-roo
 import { CreateRoomComponent } from './create-room/create-room.component';
 import { UpdateRoomComponent } from './update-room/update-room.component';
 import { DeleteRoomComponent } from './delete-room/delete-room.component';
+import { RoomDetailComponent } from './room-detail/room-detail.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -25,10 +29,13 @@ import { DeleteRoomComponent } from './delete-room/delete-room.component';
     RatFriendlyRoomsComponent,
     CreateRoomComponent,
     UpdateRoomComponent,
-    DeleteRoomComponent
+    DeleteRoomComponent,
+    RoomDetailComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule
   ],
