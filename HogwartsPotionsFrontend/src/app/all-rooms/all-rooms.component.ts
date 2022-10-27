@@ -10,7 +10,14 @@ export class AllRoomsComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
 
-  ngOnInit(): void {
-  }
+  url = "/api/room";
+  rooms:Array<any> = [];
 
+  ngOnInit(): void {
+    this.http.get(this.url)
+    .subscribe((response:any) => {
+      console.log(response);
+      this.rooms = response;
+    })
+  }
 }
