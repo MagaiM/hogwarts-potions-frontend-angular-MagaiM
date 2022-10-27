@@ -1,0 +1,38 @@
+.room-nav-buttons {
+    background-color: rgb(69, 65, 71);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* left: 0;
+    top: 4rem; */
+    padding: 2rem;
+    border-radius: 1rem;
+    min-width: 8rem;
+}
+
+.room-nav-buttons a {
+    color: rgb(173, 173, 173);
+    text-decoration: none;
+    padding: 0 0 0.5rem;
+}
+.room-nav-buttons a:visited {
+    color: rgb(173, 173, 173);
+}
+.room-nav-buttons a:hover {
+    color: white;
+}
+
+.room-page-content {
+    background-color: rgb(70, 73, 77);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 0 2rem;
+}
+
+.room-body {
+    display: flex;
+    flex-direction: row;
+}
