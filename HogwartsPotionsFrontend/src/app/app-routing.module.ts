@@ -9,7 +9,6 @@ import { RatFriendlyRoomsComponent } from './rat-friendly-rooms/rat-friendly-roo
 import { RoomByIdComponent } from './room-by-id/room-by-id.component';
 import { RoomDetailComponent } from './room-detail/room-detail.component';
 import { RoomsComponent } from './rooms/rooms.component';
-import { UpdateRoomComponent } from './update-room/update-room.component';
 
 const routes: Routes = [
   {path: '', redirectTo: "home", pathMatch: 'full' },
@@ -37,10 +36,6 @@ const routes: Routes = [
       {
         path: 'create-room',
         component: CreateRoomComponent,
-      },
-      {
-        path: 'update-room',
-        component: UpdateRoomComponent,
       },
       {
         path: 'delete-room',

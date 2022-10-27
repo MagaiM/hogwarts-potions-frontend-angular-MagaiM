@@ -13,7 +13,6 @@ import { AllRoomsComponent } from './all-rooms/all-rooms.component';
 import { RoomByIdComponent } from './room-by-id/room-by-id.component';
 import { RatFriendlyRoomsComponent } from './rat-friendly-rooms/rat-friendly-rooms.component';
 import { CreateRoomComponent } from './create-room/create-room.component';
-import { UpdateRoomComponent } from './update-room/update-room.component';
 import { DeleteRoomComponent } from './delete-room/delete-room.component';
 import { RoomDetailComponent } from './room-detail/room-detail.component';
 import { MessagesComponent } from './messages/messages.component';
@@ -28,7 +27,6 @@ import { MessagesComponent } from './messages/messages.component';
     RoomByIdComponent,
     RatFriendlyRoomsComponent,
     CreateRoomComponent,
-    UpdateRoomComponent,
     DeleteRoomComponent,
     RoomDetailComponent,
     MessagesComponent
