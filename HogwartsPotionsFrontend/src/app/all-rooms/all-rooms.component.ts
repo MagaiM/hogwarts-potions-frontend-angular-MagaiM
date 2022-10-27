@@ -1,4 +1,3 @@
-// import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Room } from '../room';
 import { RoomService } from '../room.service';
@@ -11,7 +10,6 @@ import { RoomService } from '../room.service';
 export class AllRoomsComponent implements OnInit {
 
   constructor(
-    // private http: HttpClient,
     private roomService: RoomService) { }
 
   url = "/api/room";
@@ -19,18 +17,12 @@ export class AllRoomsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRooms();
-    // this.http.get(this.url)
-    // .subscribe((response:any) => {
-    //   console.log(response);
-    //   this.rooms = response;
-    // })
   }
 
   getRooms(): void {
     this.roomService.getAllRooms()
     .subscribe(rooms => {
       this.rooms = rooms;
-      console.log(this.rooms);
     });
   }
 
