@@ -1,1 +1,9 @@
-<p>create-room works!</p>
+<div>
+    <label for="new-room" style="font-size: 18px;">Room capacity: </label>
+    <input id="new-room" #roomCapacity type="number" placeholder="{{room.capacity}}"/>
+  
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button type="button" class="add-button" (click)="add(roomCapacity.value); roomCapacity.value=''">
+      Create New Room
+    </button>
+  </div>
