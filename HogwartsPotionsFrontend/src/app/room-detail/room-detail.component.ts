@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Room } from '../room';
@@ -14,6 +14,7 @@ export class RoomDetailComponent implements OnInit {
   room: Room | undefined;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private roomService: RoomService,
     private location: Location
@@ -29,15 +30,14 @@ export class RoomDetailComponent implements OnInit {
       .subscribe(room => this.room = room);
   }
 
-  goBack(): void {
-    this.location.back();
+  goToRooms(): void {
+    this.router.navigate(['rooms/all-rooms']);
   }
 
   save(): void {
-    console.log(this.room);
     if (this.room) {
       this.roomService.updateRoom(this.room)
-        .subscribe(()=> this.goBack());
+        .subscribe(()=> this.goToRooms());
     }
   }
 }
