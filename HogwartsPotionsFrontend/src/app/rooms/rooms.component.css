@@ -6,6 +6,7 @@
     position: relative;
     /* left: 0;
     top: 4rem; */
+    height: fit-content;
     padding: 2rem;
     border-radius: 1rem;
     min-width: 8rem;

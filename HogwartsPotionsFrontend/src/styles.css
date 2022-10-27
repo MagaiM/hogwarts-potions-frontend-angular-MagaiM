@@ -12,7 +12,7 @@ html {
 body {
     /* box-sizing: content-box; */
     margin: 0;
-    height:100vh;
+    min-height:100vh;
     /* display: flex;
     flex-direction: row;
     justify-content: center; */
@@ -21,6 +21,6 @@ body {
 .root-div {
     display: flex;
     flex-flow: column;
-    height: 100%;
+    min-height: inherit;
     align-items: center;
 }
