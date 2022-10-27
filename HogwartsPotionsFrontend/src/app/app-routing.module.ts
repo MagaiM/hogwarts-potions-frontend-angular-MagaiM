@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { PotionsComponent } from './potions/potions.component';
 import { RatFriendlyRoomsComponent } from './rat-friendly-rooms/rat-friendly-rooms.component';
 import { RoomByIdComponent } from './room-by-id/room-by-id.component';
+import { RoomDetailComponent } from './room-detail/room-detail.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { UpdateRoomComponent } from './update-room/update-room.component';
 
@@ -20,6 +21,10 @@ const routes: Routes = [
       {
         path: 'all-rooms',
         component: AllRoomsComponent,
+      },
+      {
+        path: 'details/:id',
+        component: RoomDetailComponent,
       },
       {
         path: 'rooms-by-id',
