@@ -1,0 +1,9 @@
+<div *ngIf="room">
+    <h2>Room: {{room.id}}</h2>
+    <div>
+      <label for="hero-name room-capacity">Room capacity: </label>
+      <input id="hero-name " [(ngModel)]="room.capacity" placeholder="{{room.capacity}}"/>
+    </div>
+    <button type="button" (click)="goBack()">go back</button>
+    <button type="button" (click)="save()">save</button>
+  </div>
