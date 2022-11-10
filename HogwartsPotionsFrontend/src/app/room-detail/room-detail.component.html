@@ -6,19 +6,21 @@
     <div class="room-properties">
       <div class="room-capacity-settings" *ngIf="room">
         <label for="room-capacity" style="font-size: 18px;">Room capacity: </label>
-        <input id="room-capacity" type="number" min="1" max="999" [(ngModel)]="room.capacity" placeholder="{{room.capacity}}" (change)="isChanged()"/>
+        <input id="room-capacity" type="number" min="1" max="999" [(ngModel)]="room.capacity" placeholder="{{room.capacity}}" (input)="isChanged()"/>
         <span class="info min">(Min: {{ minRoomCapacity }})</span>
         <span class="info max">(Max: {{ maxRoomCapacity }})</span>
       </div>
       <div class="room-house-type-settings" *ngIf="room">
         <label for="room-house-type" style="font-size: 18px;">House: </label>
-        <select id="room-house-type" class="room-house-type-selector" [(ngModel)]="ngSelect" (change)="isChanged()">
+        <select id="room-house-type" class="room-house-type-selector" 
+        [(ngModel)]="ngSelect" (change)="isChanged()"
+        [disabled]="!roomIsEmpty">
           <option class="room-house-type-options" *ngFor="let houseType of houseTypes"
           [selected]="houseType === ngSelect"
           [value]="houseType"> 
           {{ houseType }} 
           </option>
-        </select>
+        </select><span *ngIf="!roomIsEmpty" class="info type">(Only empty rooms house type can be changed!)</span>
         <div class="select-icon">
           <svg focusable="false" viewBox="0 0 104 128" 
                width="25" height="35" class="icon">
@@ -52,5 +54,3 @@
         </div>
     </div>
 </div>
-
-<!-- *ngIf="houseType === houseTypes[room.roomHouseType]" -->
