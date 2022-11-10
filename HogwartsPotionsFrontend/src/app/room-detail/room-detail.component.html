@@ -1,12 +1,40 @@
-<div *ngIf="room">
-    <h2>Room: {{room.id}}</h2>
-    <div>
-      <label for="room-capacity" style="font-size: 18px;">Room capacity: </label>
-      <input id="room-capacity" [(ngModel)]="room.capacity" placeholder="{{room.capacity}}"/>
+<div>
+    <div *ngIf="errorMessage" class="error-message">
+        <h2>{{ errorMessage }}</h2>
+    </div>
+    <h2 *ngIf="room">Room: {{room.id}}</h2>
+    <div class="room-properties">
+      <div class="room-capacity-settings" *ngIf="room">
+        <label for="room-capacity" style="font-size: 18px;">Room capacity: </label>
+        <input id="room-capacity" type="number" min="1" max="999" [(ngModel)]="room.capacity" placeholder="{{room.capacity}}" (change)="isChanged()"/>
+      </div>
+      <div class="room-house-type-settings" *ngIf="room">
+        <label for="room-house-type" style="font-size: 18px;">House: </label>
+        <select id="room-house-type" class="room-house-type-selector" [(ngModel)]="ngSelect" (change)="isChanged()">
+          <option class="room-house-type-options" *ngFor="let houseType of houseTypes"
+          [selected]="houseType === ngSelect"
+          [value]="houseType"> 
+          {{ houseType }} 
+          </option>
+        </select>
+        <div class="select-icon">
+          <svg focusable="false" viewBox="0 0 104 128" 
+               width="25" height="35" class="icon">
+            <path 
+                 d="m2e1 95a9 9 0 0 1 -9 9 9 9 0 0 1 -9 -9 9 9
+                    0 0 1 9 -9 9 9 0 0 1 9 9zm0-3e1a9 9 0 0 1 
+                    -9 9 9 9 0 0 1 -9 -9 9 9 0 0 1 9 -9 9 9 0 0 
+                    1 9 9zm0-3e1a9 9 0 0 1 -9 9 9 9 0 0 1 -9 -9 9 
+                    9 0 0 1 9 -9 9 9 0 0 1 9 9zm14 
+                    55h68v1e1h-68zm0-3e1h68v1e1h-68zm0-3e1h68v1e1h-68z">
+            </path>
+          </svg>
+        </div>
+      </div>
     </div>
     <button type="button" (click)="goToRooms()">go back</button>
-    <button type="button" (click)="save()">save</button>
-    <div>
+    <button type="button" [disabled]="!inputChangedAndValid" (click)="save()" *ngIf="room">Update</button>
+    <div *ngIf="room">
         <h2>Residents:</h2>
         <div *ngIf="room.residents.length > 0">
             <ul class="residents">
@@ -22,3 +50,5 @@
         </div>
     </div>
 </div>
+
+<!-- *ngIf="houseType === houseTypes[room.roomHouseType]" -->
