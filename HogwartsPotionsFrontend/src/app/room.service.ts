@@ -89,10 +89,9 @@ export class RoomService {
   /** PUT: update the room capacity in Hogwarts */
   updateRoom(room: Room): Observable<any> {
     const url = `${this.roomsUrl}/${room.id}`;
-    console.log(url);
     return this.http.put(url, room, this.httpOptions).pipe(
-      tap(_ => this.log(`updated room id=${room.id}`)),
-      catchError(this.handleError<any>('updateRoom'))
+      tap(_ => this.log(`updated room id=${room.id}`))//,
+      // catchError(this.handleError<any>('updateRoom'))
     );
   }
 
