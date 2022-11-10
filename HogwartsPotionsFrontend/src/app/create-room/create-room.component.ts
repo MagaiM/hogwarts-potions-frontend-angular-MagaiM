@@ -13,7 +13,8 @@ export class CreateRoomComponent implements OnInit {
   room: Room = {
     capacity : 5,
     residents:[],
-    id: 0
+    id: 0,
+    roomHouseType: 0
   };
 
   capacity: Number = 5;
