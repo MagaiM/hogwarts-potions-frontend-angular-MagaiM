@@ -93,7 +93,21 @@ export class RoomDetailComponent implements OnInit {
         }, err => {
           this.getRoom();
           this.errorMessage = err.error;
-        });
+      });
+    }
+  }
+
+  delete(): void {
+    if (this.room) {
+      if (!this.roomIsEmpty) {
+        alert("You can delete only empty rooms!");
+        return;
+      }
+      
+      if (confirm("Are you sure you want to delete this room? \n This will permanetle remove this room from Hogwarts!")){
+        this.roomService.deleteRoom(this.room.id).subscribe();
+        this.goToRooms();
+      }
     }
   }
 }

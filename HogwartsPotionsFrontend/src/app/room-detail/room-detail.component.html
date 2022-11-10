@@ -38,6 +38,7 @@
     </div>
     <button type="button" (click)="goToRooms()">go back</button>
     <button type="button" [disabled]="!inputChangedAndValid" (click)="save()" *ngIf="room">Update</button>
+    <button type="button" class="delete" [disabled]="!roomIsEmpty" (click)="delete()" *ngIf="room">Delete</button>
     <div *ngIf="room">
         <h2>Residents:</h2>
         <div *ngIf="room.residents.length > 0">
