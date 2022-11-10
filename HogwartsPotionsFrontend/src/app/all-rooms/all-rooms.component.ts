@@ -8,14 +8,12 @@ import { RoomService } from '../room.service';
   styleUrls: ['./all-rooms.component.css']
 })
 export class AllRoomsComponent implements OnInit {
-
-  constructor(
-    private roomService: RoomService) { }
-
   url = "/api/room";
   rooms: Room[] = [];
   houseTypes: String[] = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
   errorMessage: string | undefined;
+
+  constructor(private roomService: RoomService) { }
 
   ngOnInit(): void {
     this.getRooms();
@@ -33,7 +31,7 @@ export class AllRoomsComponent implements OnInit {
       alert("You can delete only empty rooms!");
       return;
     }
-    
+
     if (confirm("Are you sure you want to delete this room? \n This will permanetle remove this room from Hogwarts!")){
       this.rooms = this.rooms.filter(r => r !== room);
       this.roomService.deleteRoom(room.id).subscribe();
