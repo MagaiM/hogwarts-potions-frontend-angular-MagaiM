@@ -5,4 +5,5 @@ export interface Room
     capacity: number;
     id: number;
     residents: Student[];
+    roomHouseType: number;
 }
