@@ -2,7 +2,7 @@
   <div class="room-properties">
     <div class="room-capacity-settings" *ngIf="room">
       <label for="room-capacity" style="font-size: 18px;">Room capacity: </label>
-      <input id="room-capacity" type="number" min="1" max="999" [(ngModel)]="room.capacity" placeholder="{{room.capacity}}" (change)="isChanged()" />
+      <input id="room-capacity" type="number" min="1" max="999" [(ngModel)]="room.capacity" placeholder="{{room.capacity}}" (input)="isChanged()" />
       <span class="info min">(Min: {{ minRoomCapacity }})</span>
       <span class="info max">(Max: {{ maxRoomCapacity }})</span>
     </div>
@@ -29,9 +29,7 @@
       </div>
     </div>
   </div>
-  
-    <!-- (click) passes input value to add() and then clears the input -->
-    <button type="button" [disabled]="!houseTypeSelectedAndValidCap" class="add-button" (click)="add()">
-      Create
-    </button>
-  </div>
+  <button type="button" [disabled]="!houseTypeSelectedAndValidCap" class="add-button" (click)="add()">
+    Create
+  </button>
+</div>
