@@ -16,8 +16,12 @@ export class CreateRoomComponent implements OnInit {
     id: 0,
     roomHouseType: 0
   };
-
+  houseTypes: String[] = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
+  ngSelect: string | undefined;
   capacity: Number = 5;
+  houseTypeSelectedAndValidCap: boolean = false;
+  maxRoomCapacity: number = 999;
+  minRoomCapacity: number = 1;
   
   constructor(
     private roomService: RoomService,
@@ -31,15 +35,34 @@ export class CreateRoomComponent implements OnInit {
     this.router.navigate([`rooms/details/${this.room.id}`]);
   }
 
-  add(capacity: string): void {
+  isChanged(): void {
 
-    if (!capacity) {
+    if (this.room.capacity > this.maxRoomCapacity ||
+      this.room.capacity < this.room.residents.length ||
+      this.room.capacity < this.minRoomCapacity) {
+        this.houseTypeSelectedAndValidCap = false;
+        return;
+    }
+    
+    if (this.ngSelect) {
+      this.houseTypeSelectedAndValidCap = true;
       return;
     }
-    this.room.capacity = Number(capacity);
-    this.roomService.addRoom(this.room).subscribe((room) => {
-      this.room = room;
-      this.goToNewRoom();
-    });
+
+    this.houseTypeSelectedAndValidCap = false;
+  }
+
+  add(): void {
+    if (this.ngSelect) {
+      if (this.room.capacity > 999) this.room.capacity = 999;
+      if (this.room.capacity < 1) this.room.capacity = 1;
+      let newRoomHouseType = this.houseTypes.indexOf(this.ngSelect);
+      if (newRoomHouseType !== -1) this.room.roomHouseType = newRoomHouseType;
+      else return;
+      this.roomService.addRoom(this.room).subscribe((room) => {
+        this.room = room;
+        this.goToNewRoom();
+      });
+    }
   }
 }
