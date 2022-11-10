@@ -1,1 +1,14 @@
-<p>room-by-id works!</p>
+<div>
+    <div *ngIf="errorMessage" class="error-message">
+        <h2>{{ errorMessage }}</h2>
+    </div>
+    <div class="room-properties">
+      <div class="room-number-settings">
+        <label for="room-number" style="font-size: 18px;">Room number: </label>
+        <input id="room-number" type="number" min="1" [(ngModel)]="roomNumber" (input)="isChanged()" />
+      </div>
+    </div>
+    <button type="button" [disabled]="!validNumberToSearch" class="search-button" (click)="search()">
+      Search
+    </button>
+</div>
