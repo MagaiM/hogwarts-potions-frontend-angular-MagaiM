@@ -11,6 +11,7 @@ import { Room } from './room';
 export class RoomService {
 
   private roomsUrl = '/api/room';  // URL to web api
+  private ratFriendlyRoomsUrl = '/api/room/rat-friendly';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -50,6 +51,14 @@ export class RoomService {
       tap(_ => this.log(`fetched room id=${id}`)),
       catchError(this.handleError<Room>(`get id=${id}`))
     );
+  }
+
+  getRatFriendlyRooms(): Observable<Room[]> {
+    return this.http.get<Room[]>(this.ratFriendlyRoomsUrl)
+      .pipe(
+        tap(_ => this.log('fetched rat driendly rooms')),
+        catchError(this.handleError<Room[]>('getRatDriendlyRooms', []))
+      );
   }
 
 //   /* GET heroes whose name contains search term */
