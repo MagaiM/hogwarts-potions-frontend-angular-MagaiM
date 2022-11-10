@@ -14,6 +14,7 @@
         {{ houseType }} 
         </option>
       </select>
+      <span *ngIf="!ngSelect" class="info type">(You need to select a house type to create a room!)</span>
       <div class="select-icon">
         <svg focusable="false" viewBox="0 0 104 128" 
              width="25" height="35" class="icon">
