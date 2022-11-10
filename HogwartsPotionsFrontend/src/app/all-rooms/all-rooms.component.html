@@ -3,7 +3,7 @@
 <ul class="rooms">
     <li *ngFor="let room of rooms">
       <a routerLink="/rooms/details/{{room.id}}">
-        <span class="badge">{{room.id}}</span><span class="cap"> Capacity: {{room.capacity}} </span>
+        <span class="badge">{{room.id}}</span><span class="cap"> Capacity: {{room.capacity}} </span><span> House: {{houseTypes[room.roomHouseType]}} </span>
       </a>
       <button type="button" class="delete" title="delete room"
         (click)="delete(room)">x</button>
