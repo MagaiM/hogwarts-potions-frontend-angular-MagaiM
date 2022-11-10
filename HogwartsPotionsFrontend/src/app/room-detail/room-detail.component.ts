@@ -19,6 +19,7 @@ export class RoomDetailComponent implements OnInit {
   ngSelect: String = "";
   errorMessage: String | undefined;
   inputChangedAndValid: boolean = false;
+  roomIsEmpty: boolean | undefined;
 
   constructor(
     private router: Router,
@@ -42,6 +43,7 @@ export class RoomDetailComponent implements OnInit {
         this.originalCapacity = room.capacity;
         this.originalHouseType = room.roomHouseType;
         this.ngSelect = this.houseTypes[room.roomHouseType];
+        this.roomIsEmpty = this.room.residents.length === 0;
       });
   }
 
