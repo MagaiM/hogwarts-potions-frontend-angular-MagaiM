@@ -1,0 +1,81 @@
+
+.students {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: max-content;
+}
+
+.students li {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.students li:hover {
+    left: .1em;
+}
+
+.students a {
+    color: #333;
+    text-decoration: none;
+    background-color: #EEE;
+    margin: .5em;
+    padding: .3em 1em .3em 0;
+    height: 1.6em;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+}
+
+.students a:hover {
+    color: #2c3a41;
+    background-color: #e6e6e6;
+}
+
+.students a:active {
+    background-color: #525252;
+    color: #fafafa;
+}
+
+.students .badge {
+    display: inline-block;
+    font-size: small;
+    color: white;
+    padding: 0.8em 0.7em 0 0.7em;
+    background-color: #405061;
+    line-height: 1em;
+    position: relative;
+    left: -1px;
+    top: -4px;
+    height: 1.8em;
+    min-width: 16px;
+    text-align: right;
+    margin-right: .8em;
+    border-radius: 4px 0 0 4px;
+}
+
+button.delete {
+    /* position: absolute;
+    left: 210px;
+    top: 5px; */
+    height: fit-content;
+    background-color: #614040;
+    color:  #ffffff;
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 1px 10px 3px 10px;
+}
+
+button.delete:hover {
+    background-color: rgb(187, 34, 34);
+    color: white;
+}
+
+.error-message{
+    background-color: #774040;
+    padding: 1em;
+    border: 2px solid rgb(136, 108, 108);
+    border-radius: 1em;
+}

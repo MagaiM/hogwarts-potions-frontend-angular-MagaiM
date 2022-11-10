@@ -1,0 +1,13 @@
+<h1>All of the Students of Hogwarts</h1>
+<div *ngIf="errorMessage" class="error-message">
+  <h2>{{ errorMessage }}</h2>
+</div>
+<ul class="students">
+    <li *ngFor="let student of students">
+      <a routerLink="/students/details/{{student.id}}">
+        <span class="badge">{{student.id}}</span><span class="cap"> Name: {{student.name}} </span><span> House: {{houseTypes[student.houseType]}} </span>
+      </a>
+      <button type="button" class="delete" title="delete student"
+        (click)="delete(student)">x</button>
+    </li>
+</ul>
