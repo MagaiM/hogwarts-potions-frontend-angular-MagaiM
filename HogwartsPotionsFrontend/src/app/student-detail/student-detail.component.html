@@ -1,0 +1,52 @@
+<div>
+    <div *ngIf="errorMessage" class="error-message">
+        <h2>{{ errorMessage }}</h2>
+    </div>
+    <h2 *ngIf="student">Student: {{student.name}} ({{student.id}}) </h2>
+    <div class="room-properties">
+      <div class="room-capacity-settings" *ngIf="student">
+        <label for="student-capacity" style="font-size: 18px;">Student name: </label>
+        <input id="student-capacity" type="text" [(ngModel)]="student.name" placeholder="{{student.name}}" (input)="isChanged()"/>
+      </div>
+      <div class="room-house-type-settings" *ngIf="student">
+        <label for="room-house-type" style="font-size: 18px;">House: </label>
+        <select id="room-house-type" class="room-house-type-selector" 
+        [(ngModel)]="ngSelect" (change)="isChanged()"
+        [disabled]="false">
+          <option class="room-house-type-options" *ngFor="let houseType of houseTypes"
+          [selected]="houseType === ngSelect"
+          [value]="houseType"> 
+          {{ houseType }} 
+          </option>
+        </select>
+        <div class="select-icon">
+          <svg focusable="false" viewBox="0 0 104 128" 
+               width="25" height="35" class="icon">
+            <path 
+                 d="m2e1 95a9 9 0 0 1 -9 9 9 9 0 0 1 -9 -9 9 9
+                    0 0 1 9 -9 9 9 0 0 1 9 9zm0-3e1a9 9 0 0 1 
+                    -9 9 9 9 0 0 1 -9 -9 9 9 0 0 1 9 -9 9 9 0 0 
+                    1 9 9zm0-3e1a9 9 0 0 1 -9 9 9 9 0 0 1 -9 -9 9 
+                    9 0 0 1 9 -9 9 9 0 0 1 9 9zm14 
+                    55h68v1e1h-68zm0-3e1h68v1e1h-68zm0-3e1h68v1e1h-68z">
+            </path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <button type="button" (click)="goToStudents()">Go back</button>
+    <button type="button" class="update" [disabled]="false" (click)="save()" *ngIf="student">Update</button>
+    <button type="button" class="delete" [disabled]="false" (click)="delete()" *ngIf="student">Delete</button>
+    <div *ngIf="student">
+        <h2>Room:</h2>
+        <div>
+            <ul class="room">
+                <li>
+                  <a routerLink="/rooms/details/{{student.room.id}}">
+                    <span class="badge">{{student.room.id}}</span><span class="cap"> Capacity: {{student.room.capacity}} </span><span> House: {{houseTypes[student.room.roomHouseType]}} </span>
+                  </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
