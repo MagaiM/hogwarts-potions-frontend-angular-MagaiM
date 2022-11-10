@@ -7,6 +7,8 @@
       <div class="room-capacity-settings" *ngIf="room">
         <label for="room-capacity" style="font-size: 18px;">Room capacity: </label>
         <input id="room-capacity" type="number" min="1" max="999" [(ngModel)]="room.capacity" placeholder="{{room.capacity}}" (change)="isChanged()"/>
+        <span class="info min">(Min: {{ minRoomCapacity }})</span>
+        <span class="info max">(Max: {{ maxRoomCapacity }})</span>
       </div>
       <div class="room-house-type-settings" *ngIf="room">
         <label for="room-house-type" style="font-size: 18px;">House: </label>
