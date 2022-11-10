@@ -14,6 +14,7 @@ export class AllRoomsComponent implements OnInit {
 
   url = "/api/room";
   rooms: Room[] = [];
+  houseTypes: String[] = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
 
   ngOnInit(): void {
     this.getRooms();
