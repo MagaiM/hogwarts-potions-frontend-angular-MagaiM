@@ -32,6 +32,7 @@
     flex-direction: row;
     margin: 0 2rem;
     padding: 2rem;
+    padding-right: 5rem;
 }
 
 .room-body {

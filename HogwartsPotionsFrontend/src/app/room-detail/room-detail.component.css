@@ -16,22 +16,23 @@ input {
     background-color: #59525e;
     border: none;
     border-bottom: 2px solid #493547;
+    border-right: 2px solid #493547;
     color: rgb(255, 255, 255);
     appearance: none;
     padding: 0 2em;
     -webkit-appearance: none;
     -moz-appearance: none;
     transition: color 0.3s ease, background-color 0.3s ease,
-                   border-bottom-color 0.3s ease;
+    border-bottom-color 0.3s ease;
 }
 
 input:hover,
 input:focus {
-      color: white;
-      background-color: rgb(55, 56, 65);
+    color: white;
+    background-color: rgb(55, 56, 65);
       border-bottom-color: #141313;
-}
-
+    }
+    
 button {
     margin-top: 20px;
     margin-right: .5rem;
@@ -146,16 +147,6 @@ button.delete:hover {
     white-space: nowrap;
 }
 
-input {
-    background-color: #59525e;
-    color: rgb(255, 255, 255);
-    width: 100%;
-    margin-left: 1rem;
-    border: none;
-    border-bottom: 2px solid #493547;
-    border-right: 2px solid #493547;
-}
-
 select {
     margin-left: 2rem;
     width: 100%;
@@ -228,3 +219,18 @@ select:focus ~ .select-icon svg.icon {
     border: 2px solid rgb(136, 108, 108);
     border-radius: 1em;
 }
+
+.info{
+    color: #9c8ea7;
+    position: absolute;
+  }
+  
+  .info.min {
+    top: 5px;
+    right: -53px;
+  }
+  
+  .info.max {
+    top: 25px;
+    right: -70px;
+  }
