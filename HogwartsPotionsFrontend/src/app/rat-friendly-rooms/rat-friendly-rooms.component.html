@@ -1,5 +1,7 @@
 <h1>Rat friendly Rooms of Hogwarts</h1>
-
+<div *ngIf="errorMessage" class="error-message">
+    <h2>{{ errorMessage }}</h2>
+</div>
 <ul class="rooms">
     <li *ngFor="let room of rooms">
       <a routerLink="/rooms/details/{{room.id}}">
