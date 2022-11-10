@@ -15,6 +15,9 @@ import { RatFriendlyRoomsComponent } from './rat-friendly-rooms/rat-friendly-roo
 import { CreateRoomComponent } from './create-room/create-room.component';
 import { RoomDetailComponent } from './room-detail/room-detail.component';
 import { MessagesComponent } from './messages/messages.component';
+import { StudentDetailComponent } from './student-detail/student-detail.component';
+import { AllStudentsComponent } from './all-students/all-students.component';
+import { StudentsComponent } from './students/students.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { MessagesComponent } from './messages/messages.component';
     RatFriendlyRoomsComponent,
     CreateRoomComponent,
     RoomDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    StudentDetailComponent,
+    AllStudentsComponent,
+    StudentsComponent
   ],
   imports: [
     BrowserModule,
