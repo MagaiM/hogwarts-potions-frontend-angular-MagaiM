@@ -1,9 +1,37 @@
 <div>
-    <label for="new-room" style="font-size: 18px;">Room capacity: </label>
-    <input id="new-room" #roomCapacity type="number" placeholder="{{room.capacity}}"/>
+  <div class="room-properties">
+    <div class="room-capacity-settings" *ngIf="room">
+      <label for="room-capacity" style="font-size: 18px;">Room capacity: </label>
+      <input id="room-capacity" type="number" min="1" max="999" [(ngModel)]="room.capacity" placeholder="{{room.capacity}}" (change)="isChanged()" />
+      <span class="info min">(Min: {{ minRoomCapacity }})</span>
+      <span class="info max">(Max: {{ maxRoomCapacity }})</span>
+    </div>
+    <div class="room-house-type-settings" *ngIf="room">
+      <label for="room-house-type" style="font-size: 18px;">House: </label>
+      <select id="room-house-type" class="room-house-type-selector" [(ngModel)]="ngSelect" (change)="isChanged()" >
+        <option class="room-house-type-options" *ngFor="let houseType of houseTypes"
+        [value]="houseType"> 
+        {{ houseType }} 
+        </option>
+      </select>
+      <div class="select-icon">
+        <svg focusable="false" viewBox="0 0 104 128" 
+             width="25" height="35" class="icon">
+          <path 
+               d="m2e1 95a9 9 0 0 1 -9 9 9 9 0 0 1 -9 -9 9 9
+                  0 0 1 9 -9 9 9 0 0 1 9 9zm0-3e1a9 9 0 0 1 
+                  -9 9 9 9 0 0 1 -9 -9 9 9 0 0 1 9 -9 9 9 0 0 
+                  1 9 9zm0-3e1a9 9 0 0 1 -9 9 9 9 0 0 1 -9 -9 9 
+                  9 0 0 1 9 -9 9 9 0 0 1 9 9zm14 
+                  55h68v1e1h-68zm0-3e1h68v1e1h-68zm0-3e1h68v1e1h-68z">
+          </path>
+        </svg>
+      </div>
+    </div>
+  </div>
   
     <!-- (click) passes input value to add() and then clears the input -->
-    <button type="button" class="add-button" (click)="add(roomCapacity.value); roomCapacity.value=''">
-      Create New Room
+    <button type="button" [disabled]="!houseTypeSelectedAndValidCap" class="add-button" (click)="add()">
+      Create
     </button>
   </div>
