@@ -10,6 +10,8 @@
     min-height: inherit;
     min-width: 80%;
     max-width: 90%;
+    display: inline-block;
+    align-items: center;
 }
 
 /* h1,
