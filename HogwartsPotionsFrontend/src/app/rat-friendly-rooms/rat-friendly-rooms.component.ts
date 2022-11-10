@@ -11,6 +11,7 @@ import { RoomService } from '../room.service';
 export class RatFriendlyRoomsComponent implements OnInit {
   rooms: Room[] = [];
   houseTypes: String[] = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
+  errorMessage: string | undefined;
 
   constructor(private roomService: RoomService) { }
 
@@ -27,7 +28,14 @@ export class RatFriendlyRoomsComponent implements OnInit {
   }
 
   delete(room: Room): void {
-    this.rooms = this.rooms.filter(r => r !== room);
-    this.roomService.deleteRoom(room.id).subscribe();
+    if (room.residents.length > 0) {
+      alert("You can delete only empty rooms!");
+      return;
+    }
+
+    if (confirm("Are you sure you want to delete this room? \n This will permanetle remove this room from Hogwarts!")){
+      this.rooms = this.rooms.filter(r => r !== room);
+      this.roomService.deleteRoom(room.id).subscribe();
+    }
   }
 }
