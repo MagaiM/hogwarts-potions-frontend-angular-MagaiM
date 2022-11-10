@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AllRoomsComponent } from './all-rooms/all-rooms.component';
 import { CreateRoomComponent } from './create-room/create-room.component';
-import { DeleteRoomComponent } from './delete-room/delete-room.component';
 import { HomeComponent } from './home/home.component';
 import { PotionsComponent } from './potions/potions.component';
 import { RatFriendlyRoomsComponent } from './rat-friendly-rooms/rat-friendly-rooms.component';
@@ -36,10 +35,6 @@ const routes: Routes = [
       {
         path: 'create-room',
         component: CreateRoomComponent,
-      },
-      {
-        path: 'delete-room',
-        component: DeleteRoomComponent,
       }
     ]
   },
