@@ -1,0 +1,24 @@
+<div class="second-stage" *ngIf="student">
+    <div class="student-info">
+      <p>ID: {{ student.id }}</p>
+      <p>Name: {{ student.userName }}</p>
+      <p>Pet: {{ petTypes[student.petType] }}</p>
+      <p>House: {{ houseTypes[student.houseType] }}</p>
+    </div>
+    <div class="available-rooms">
+      <h2>Available rooms:</h2>
+      <div class="rooms">
+        <div class="room" *ngFor="let room of student.availableRooms">
+          <a routerLink="/rooms/details/{{room.id}}">
+            <span class="badge">{{room.id}}</span><span class="cap"> Capacity: {{room.capacity}} </span><span> House: {{houseTypes[room.roomHouseType]}} </span>
+          </a>
+          <ul class="residents">
+            <li *ngFor="let resident of room.residents">
+              <p>{{resident.userName}}</p>
+            </li>
+          </ul>
+          <button type="button" class="select-room" title="select room" (click)="selectRoom(room)">Select</button>
+        </div>
+      </div>
+    </div>
+  </div>
