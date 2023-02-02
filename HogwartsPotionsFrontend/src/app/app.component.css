@@ -14,15 +14,6 @@
     align-items: center;
 }
 
-/* h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin: 8px 0;
-} */
-
 p {
     margin: 0;
 }
@@ -42,6 +33,8 @@ p {
     background-color: #312e3a;
     color: rgb(228, 228, 228);
     font-weight: 600;
+    justify-content: space-between;
+    border-bottom: #905225 solid 3px;
 }
 
 .toolbar img {
@@ -50,6 +43,17 @@ p {
 
 .nav-button {
     padding: 0 1rem;
+    display: flex;
+    height: 60px;
+}
+
+.nav-button span{
+    display: flex;
+    align-items: center;
+}
+
+.basic-nav-buttons, .user-nav-buttons{
+    display: flex;
 }
 
 .content {
@@ -65,10 +69,18 @@ a:visited,
 a:hover {
     color: rgb(165, 165, 165);
     text-decoration: none;
+    cursor: pointer;
 }
 
 a:hover {
     color: #ffffff;
+    background-color: #905225;
+    transition: color 0.3s ease, background-color 0.3s ease,
+    border-bottom-color 0.3s ease;
+}
+
+.user-nav-buttons{
+    float: right;
 }
 
 footer {

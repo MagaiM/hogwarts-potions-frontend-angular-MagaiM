@@ -1,21 +1,21 @@
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-  <a class="nav-button" routerLink="/home" title="Home">
-    <img
-      width="40"
-      alt="Hogwarts Logo"
-      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
-    />
-  </a>
-  <div>
-    <a class="nav-button" routerLink="/home" title="Home"><span>Hogwarts</span></a>
+  <div class="basic-nav-buttons">
+    <a class="nav-button" routerLink="/home" title="Home">
+      <img
+        height="60"
+        alt="Hogwarts Logo"
+        src="/assets/img/HogwartsLogo.png"
+      />
+    </a>
+    <!-- <a class="nav-button" routerLink="/home" title="Home"><span>Hogwarts</span></a> -->
     <!-- <div class="spacer"></div> -->
     <a class="nav-button" routerLink="/rooms/all-rooms" title="Rooms"><span>Rooms</span></a>
     <a class="nav-button" routerLink="/students/all-students" title="Students"><span>Students</span></a>
     <a class="nav-button" routerLink="/potions" title="Potions"><span>Potions</span></a>
   </div>
   <div class="user-nav-buttons loggedin" *ngIf="isLoggedIn$ | async; else elseBlock">
-    <a class="nav-button" title="Logout" (click)="logOut()"><span>Logout</span></a>
+    <a class="nav-button logout-link" title="Logout" (click)="logOut()"><span>Logout</span></a>
   </div>
   <ng-template #elseBlock>
     <div class="user-nav-buttons not-loggedin">
