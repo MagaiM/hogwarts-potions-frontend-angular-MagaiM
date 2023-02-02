@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 
-import { Student } from '../student';
 import { User } from '../user';
 import { Room } from '../room';
 import { StudentService } from '../student.service';
@@ -26,8 +25,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private studentService: StudentService,
-    private router: Router,
-    private route: ActivatedRoute
+    private router: Router
   ) { }
 
   ngOnInit(): void {
