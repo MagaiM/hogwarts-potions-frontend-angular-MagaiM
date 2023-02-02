@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { Location } from '@angular/common';
 import { Room } from '../room';
 import { RoomService } from '../room.service';
 
@@ -25,6 +25,7 @@ export class RoomDetailComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private roomService: RoomService,
+    private location: Location
   ) { }
 
   ngOnInit(): void {
@@ -62,6 +63,10 @@ export class RoomDetailComponent implements OnInit {
       }
       this.inputChangedAndValid = false;
     }
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
   goToRooms(): void {
