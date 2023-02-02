@@ -1,0 +1,229 @@
+.register-page {
+    background-color: rgb(70, 73, 77);
+    padding-top: 2em;
+}
+
+label {
+    color: #a2d3e2;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    width: 350px;
+}
+
+input {
+    
+    margin-left: 2rem;
+    height: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0;
+    background-color: #59525e;
+    border: none;
+    border-bottom: 2px solid #493547;
+    border-right: 2px solid #493547;
+    color: rgb(255, 255, 255);
+    appearance: none;
+    padding: 0 2em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: color 0.3s ease, background-color 0.3s ease,
+    border-bottom-color 0.3s ease;
+}
+
+input:hover,
+input:focus {
+    color: white;
+    background-color: rgb(55, 56, 65);
+      border-bottom-color: #141313;
+    }
+    
+button{
+    background-color: #59525e;
+    color: white;
+    padding: 1rem;
+    border: 2px solid #493547;
+    border-radius: 4px;
+    font-size: 1rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: color 0.3s ease, background-color 0.3s ease,
+                    border-bottom-color 0.3s ease;
+}
+
+button .register-btn {
+    margin-top: 20px;
+    margin-right: .5rem;
+    background-color: #59525e;
+    color: white;
+    padding: 1rem;
+    border: 2px solid #493547;
+    border-radius: 4px;
+    font-size: 1rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: color 0.3s ease, background-color 0.3s ease,
+                   border-bottom-color 0.3s ease;
+}
+
+button:hover {
+    background-color: rgb(55, 56, 65);
+    border-color: #141313;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: rgb(139, 129, 143);
+    color: rgb(198, 180, 206);
+    cursor: auto;
+    border-color: #493547;
+}
+
+.pet-type-settings, .room-house-type-settings{
+    width: 500px;
+    margin: 2rem;
+    position: relative;
+    display: flex;
+    white-space: nowrap;
+}
+
+.settings{
+    width: 350px;
+    margin: 2rem;
+    position: relative;
+    display: flex;
+    white-space: nowrap;
+}
+
+select {
+    margin-left: 2rem;
+    height: 50px;
+    min-width: 200px;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0;
+    background-color: #59525e;
+    border: none;
+    border-bottom: 2px solid #493547;
+    color: rgb(255, 255, 255);
+    appearance: none;
+    padding: 10px;
+    padding-right: 38px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: color 0.3s ease, background-color 0.3s ease,
+                   border-bottom-color 0.3s ease;
+}
+
+/* For IE <= 11 */
+select::-ms-expand {
+    display: none; 
+}
+
+.select-icon {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 30px;
+    height: 36px;
+    pointer-events: none;
+    border: 2px solid #493547;
+    padding-left: 5px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.select-icon svg.icon {
+    transition: fill 0.3s ease;
+    fill: #493547;
+}
+
+select:hover,
+    select:focus {
+      color: white;
+      background-color: rgb(55, 56, 65);
+      border-bottom-color: #141313;
+}
+
+select:hover ~ .select-icon,
+    select:focus ~ .select-icon {
+      background-color: rgb(55, 56, 65);
+      border-color: white;
+}
+
+select:hover ~ .select-icon svg.icon,
+select:focus ~ .select-icon svg.icon {
+    fill: white;
+}
+
+.error-message{
+    background-color: #774040;
+    padding: 1em;
+    border: 2px solid rgb(136, 108, 108);
+    border-radius: 1em;
+}
+
+.info{
+    color: #9c8ea7;
+    position: absolute;
+}
+  
+.info.min {
+    top: 5px;
+    right: -53px;
+}
+  
+.info.max {
+    top: 25px;
+    right: -70px;
+}
+
+.info.type{
+    top: 55px;
+    left: 70px;
+    white-space: nowrap;
+}
+
+.second-stage {
+    display: flexbox;
+    /* background-color: aqua; */
+}
+
+.student-info{
+    display: inline-block;
+    padding: 2rem;
+    width: fit-content;
+    margin-right: 0;
+    /* background-color: blue; */
+}
+.available-rooms {
+    float: right;
+    width: 100%;
+    /* background-color: chartreuse; */
+    margin-bottom: 50px;
+}
+
+.select-room{
+    float: right;
+}
+
+.room{
+    padding: 4rem;
+    margin: 1rem;
+    background-color: #59525e;
+    border: 2px #141313 solid;
+    border-radius: 1rem;
+    box-shadow: #493547 5px 2px 10px;
+}
+
+a {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+a:visited{
+    color: #a2d3e2;
+}

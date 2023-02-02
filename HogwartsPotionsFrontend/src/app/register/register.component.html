@@ -1,0 +1,79 @@
+<div class="register-page">
+  <div *ngIf="errorMessage" class="error-message">
+    <h2>{{ errorMessage }}</h2>
+  </div>
+  <div class="first-stage">
+      <Form class="first-stage-form">
+          <div class="name-settings settings">
+              <label for="name"><span>Name: </span></label>
+              <input type="text" name="name" id="name" class="form-field-input-box" [(ngModel)]="studentName" (input)="isChanged()" autocomplete="off">
+          </div>
+          <div class="passwords">
+              <div class="password-first settings">
+                  <label for="password"><span>Password:</span></label>
+                  <input type="password" name="password" id="password" class="form-field-input-box" [(ngModel)]="studentPassword" (input)="isChanged()">
+              </div>
+              <div class="password-second settings">
+                  <label for="password-again"><span>Password again:</span></label>
+                  <input type="password" name="password-again" id="password-again" class="form-field-input-box" [(ngModel)]="studentPasswordAgain" (input)="isChanged()">
+              </div>
+          </div>
+          <div class="pet-type-settings">
+              <label for="pet-type">Do you have a pet? </label>
+              <select id="pet-type" class="pet-type-selector"
+              [(ngModel)]="studentPet"
+              [disabled]="false"
+              (change)="isChanged()">
+                <option class="pet-type-options" *ngFor="let petType of petTypes"
+                [selected]="petType === studentPet"
+                [value]="petType"> 
+                {{ petType }} 
+                </option>
+              </select>
+              <div class="select-icon">
+                <svg focusable="false" viewBox="0 0 104 128" 
+                      width="25" height="35" class="icon">
+                  <path 
+                        d="m2e1 95a9 9 0 0 1 -9 9 9 9 0 0 1 -9 -9 9 9
+                          0 0 1 9 -9 9 9 0 0 1 9 9zm0-3e1a9 9 0 0 1 
+                          -9 9 9 9 0 0 1 -9 -9 9 9 0 0 1 9 -9 9 9 0 0 
+                          1 9 9zm0-3e1a9 9 0 0 1 -9 9 9 9 0 0 1 -9 -9 9 
+                          9 0 0 1 9 -9 9 9 0 0 1 9 9zm14 
+                          55h68v1e1h-68zm0-3e1h68v1e1h-68zm0-3e1h68v1e1h-68z">
+                  </path>
+                </svg>
+              </div>
+          </div>
+          <div class="room-house-type-settings">
+              <label for="room-house-type">Preffered House: </label>
+              <select id="room-house-type" class="room-house-type-selector" 
+              [(ngModel)]="studentPreffHouseType"
+              [disabled]="false"
+              (change)="isChanged()">
+                <option class="room-house-type-options" *ngFor="let houseType of houseTypes"
+                [selected]="houseType === studentPreffHouseType"
+                [value]="houseType"> 
+                {{ houseType }} 
+                </option>
+              </select>
+              <div class="select-icon">
+                <svg focusable="false" viewBox="0 0 104 128" 
+                      width="25" height="35" class="icon">
+                  <path 
+                        d="m2e1 95a9 9 0 0 1 -9 9 9 9 0 0 1 -9 -9 9 9
+                          0 0 1 9 -9 9 9 0 0 1 9 9zm0-3e1a9 9 0 0 1 
+                          -9 9 9 9 0 0 1 -9 -9 9 9 0 0 1 9 -9 9 9 0 0 
+                          1 9 9zm0-3e1a9 9 0 0 1 -9 9 9 9 0 0 1 -9 -9 9 
+                          9 0 0 1 9 -9 9 9 0 0 1 9 9zm14 
+                          55h68v1e1h-68zm0-3e1h68v1e1h-68zm0-3e1h68v1e1h-68z">
+                  </path>
+                </svg>
+              </div>
+          </div>
+          <button type="button" class="register-btn btn" 
+          [disabled]="!validUserInputs"
+          (click)="registerFirstStep()">Register</button>
+          <span>Already a student? <a class="nav-button" routerLink="/login" title="Login"><span>login</span></a>!</span>
+      </Form>
+  </div>
+</div>
