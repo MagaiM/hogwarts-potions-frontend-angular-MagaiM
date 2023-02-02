@@ -36,7 +36,7 @@
         </div>
       </div>
     </div>
-    <button type="button" (click)="goToRooms()">go back</button>
+    <button type="button" (click)="goBack()">go back</button>
     <button type="button" [disabled]="!inputChangedAndValid" (click)="save()" *ngIf="room">Update</button>
     <button type="button" class="delete" [disabled]="!roomIsEmpty" (click)="delete()" *ngIf="room">Delete</button>
     <div *ngIf="room">
@@ -45,7 +45,7 @@
             <ul class="residents">
                 <li *ngFor="let student of room.residents">
                   <a routerLink="/students/details/{{student.id}}">
-                    <span class="badge">{{student.id}}</span><span class="name"> {{student.name}} </span>
+                    <span class="badge">{{student.id}}</span><span class="name"> {{student.userName}} </span>
                   </a>
                 </li>
             </ul>
