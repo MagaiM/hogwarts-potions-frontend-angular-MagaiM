@@ -223,20 +223,20 @@ select:focus ~ .select-icon svg.icon {
 .info{
     color: #9c8ea7;
     position: absolute;
-  }
+}
   
-  .info.min {
+.info.min {
     top: 5px;
     right: -53px;
-  }
+}
   
-  .info.max {
+.info.max {
     top: 25px;
     right: -70px;
-  }
+}
 
-  .info.type{
+.info.type{
     top: 55px;
     left: 70px;
     white-space: nowrap;
-  }
+}
