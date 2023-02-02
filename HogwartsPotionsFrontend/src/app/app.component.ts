@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { StudentService } from './student.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,10 @@ export class AppComponent {
 
   isLoggedIn$: Observable<boolean>;
 
-  constructor(private studentService: StudentService) {
+  constructor(
+    private router: Router,
+    private studentService: StudentService
+    ) {
     setInterval( ()=> this.time = new Date(), 1000);
     this.isLoggedIn$ = this.studentService.isLoggedIn;
   }
@@ -19,7 +23,16 @@ export class AppComponent {
   title = 'HogwartsPotions';
   time = new Date();
 
+  goToLogin(): void {
+    this.router.navigate(['/login']);
+  }
+
   logOut(){
-    this.studentService.logout();
+    var user = this.studentService.userValue;
+    console.log(user);
+    if(user) {
+      this.studentService.logout()
+      .subscribe(_ => this.goToLogin());
+    }
   }
 }
