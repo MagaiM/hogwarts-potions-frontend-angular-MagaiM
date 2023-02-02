@@ -9,7 +9,6 @@ import { Student } from './student';
 import { Room } from './room';
 import { User } from './user';
 import { RegisterResponse } from './register-response';
-import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class StudentService {
@@ -17,10 +16,11 @@ export class StudentService {
   private studentsUrl = '/api/student';  // URL to web api
   private registerUrl = '/api/student/register';
   private loginUrl = '/api/login';
+  private logoutUrl = '/api/logout';
   private houseTypes: string[] = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin", "None"];
   private userSubject: BehaviorSubject<Student | null>;
   public user: Observable<Student | null>;
-  private loggedIn = new BehaviorSubject<boolean>(false);
+  private loggedIn: BehaviorSubject<boolean>;
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -29,10 +29,10 @@ export class StudentService {
   constructor(
     private http: HttpClient,
     private messageService: MessageService,
-    private router: Router,
     ) {
-        this.userSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('user')!));
-        this.user = this.userSubject.asObservable();
+      this.userSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('user')!));
+      this.user = this.userSubject.asObservable();
+      this.loggedIn = new BehaviorSubject<boolean>(this.userSubject.value !== null);
     }
 
   public get userValue(){
@@ -100,11 +100,19 @@ export class StudentService {
     );
   }
 
-  logout(){
-    localStorage.removeItem('user');
-    this.userSubject.next(null);
-    this.loggedIn.next(false);
-    this.router.navigate([this.loginUrl]);
+  /** DELETE: logout */
+  logout(): Observable<RegisterResponse> {
+    return this.http.delete<RegisterResponse>(this.logoutUrl, this.httpOptions).pipe(
+      map(registerResponse => {
+        localStorage.removeItem('user');
+        this.userSubject.next(null);
+        this.loggedIn.next(false);
+        console.log("Loging you out");
+        return registerResponse;
+      }),
+      tap((response: RegisterResponse) => this.log(`loggedout`)),
+      catchError(this.handleError<RegisterResponse>('loggedout'))
+    )
   }
 
   /** POST: add a new student to Hogwarts */
