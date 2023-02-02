@@ -18,6 +18,9 @@ import { MessagesComponent } from './messages/messages.component';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
 import { AllStudentsComponent } from './all-students/all-students.component';
 import { StudentsComponent } from './students/students.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { RoomSelectComponent } from './room-select/room-select.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { StudentsComponent } from './students/students.component';
     MessagesComponent,
     StudentDetailComponent,
     AllStudentsComponent,
-    StudentsComponent
+    StudentsComponent,
+    LoginComponent,
+    RegisterComponent,
+    RoomSelectComponent
   ],
   imports: [
     BrowserModule,
